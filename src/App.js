@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import config from './sample.json';
+
+import classes from './App.module.css';
+import CrosswordGrid from './containers/CrosswordGrid/CrosswordGrid';
+import ClueList from './components/ClueList/ClueList';
 
 class App extends Component {
+  
   render() {
+    console.log(config);
+    
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className={classes.App}>
+        <div className={classes.PuzzleInfo}>
+          <h1>{config.Title}</h1>
+          <h5>{config.Author}</h5>
+        </div>
+        <CrosswordGrid
+          solution={config.Solution}
+          width={config.Width}
+          height={config.Height}/>
+        <ClueList direction="Across" clues={config.AcrossClue} />
+        <ClueList direction="Down" clues={config.DownClue} />
       </div>
     );
   }

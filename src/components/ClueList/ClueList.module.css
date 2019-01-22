@@ -1,0 +1,23 @@
+.ClueList {
+  margin: 15px;
+}
+
+.ClueList ul {
+  list-style: none;
+  height: 150px;
+  overflow: auto;
+}
+
+.ClueList li {
+  margin-bottom: 15px;
+}
+
+.Across {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.Down {
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+}
