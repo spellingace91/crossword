@@ -1,11 +1,13 @@
 .ClueList {
   margin: 15px;
+  padding-left: 100px;
 }
 
 .ClueList ul {
   list-style: none;
   height: 150px;
   overflow: auto;
+  padding-inline-start: 0;
 }
 
 .ClueList li {

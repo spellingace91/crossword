@@ -2,7 +2,6 @@
   display: grid;
   width: 66em;
   margin: 50px auto;
-  background-color: #eee;
   grid-template-rows: 150px 1fr 1fr;
   grid-template-columns: 1fr 1fr;
 }
@@ -10,4 +9,5 @@
 .PuzzleInfo {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  text-align: center;
 }

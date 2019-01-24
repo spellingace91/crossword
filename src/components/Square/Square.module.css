@@ -1,22 +1,30 @@
-.Square {
+.Square input {
   height: 35px;
   width: 35px;
   padding: 0;
   border: 1px solid black;
   display: inline-block;
   font-family: 'Basier Circle',Helvetica,Arial,sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   outline: none;
   background-color: #fff;
+  color: transparent;
+  text-shadow: 0 0 0 black;
 }
 
-.Square:not(.Filled):focus {
-  background-color: #a3cbfa
+.Square:not(.Filled) input:focus {
+  background-color: #a3cbfa;
 }
 
-.Filled {
+.Filled input {
   background-color: #000;
+}
+
+.Square span {
+  position: absolute;
+  font-size: 0.65rem;
+  padding-left: 3px
 }
