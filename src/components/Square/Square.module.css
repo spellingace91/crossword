@@ -13,6 +13,7 @@
   background-color: #fff;
   color: transparent;
   text-shadow: 0 0 0 black;
+  user-select: none;
 }
 
 .Square:not(.Filled) input:focus {
