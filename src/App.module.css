@@ -15,4 +15,8 @@
 .PuzzleTools {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  padding-left: 100px;
 }
