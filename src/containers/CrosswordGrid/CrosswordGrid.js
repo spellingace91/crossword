@@ -5,8 +5,9 @@ import classes from './CrosswordGrid.module.css';
 class CrosswordGrid extends Component {
   state = {
     solution: this.props.solution,
-    hasStarted: false,
+    isStarted: false,
     isCompleted: false,
+    counter: 0,
   }
 
   crosswordGrid = this.populateCrosswordGrid()
@@ -44,11 +45,8 @@ class CrosswordGrid extends Component {
     return grid;
   }
 
-  onKeyDownHandler = (event, index) => {
-    if (!this.state.hasStarted) {
-      // start timer
-      this.setState({hasStarted: true});
-    }
+  onKeyDownHandler = (index, event) => {
+    event.preventDefault();
 
     const key = event.key;
     let [row, column] = index.split(',');
@@ -64,7 +62,7 @@ class CrosswordGrid extends Component {
     // determine if the puzzle has been solved
     if (crosswordGrid.flat().every((square) => square.correct)) {
       this.setState({isCompleted: true});
-      alert('You finished the puzzle!');
+      this.props.onCompleted();
     }
 
     // if a letter was pressed
@@ -81,7 +79,10 @@ class CrosswordGrid extends Component {
           .focus();
       }
 
-      event.preventDefault();
+      if (!this.state.isStarted) {
+        this.props.onStartTimer();
+        this.setState({isStarted: true});
+      }
     }
     // if navigation keys were pressed
     else {
@@ -192,7 +193,7 @@ class CrosswordGrid extends Component {
                       blank={!letter}
                       tabindex={!letter ? '-1' : '1'}
                       numbering={square.number}
-                      onKeyDown={this.onKeyDownHandler}
+                      onKeyDown={this.onKeyDownHandler.bind(this)}
                       index={`${row},${column}`}
                       key={`${row},${column}`}
                     />
